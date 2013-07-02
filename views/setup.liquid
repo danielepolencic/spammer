@@ -4,10 +4,10 @@
     <div class="panel">
       <h5 class="subheader">You can edit the following template. remember that {{ "{{ name " }}}} and {{ "{{ email " }}}} are going to be replaced with the email and name (if applicable) of the receiver.</h5>
     </div>
-    <label for="subject">Subject</label>
-    <input type="text" name="subject" value="Hey, I'm the subject"/>
-    <label for="template">Message</label>
-    <textarea name="template" rows="10" cols="30">
+    <label for="email_subject">Subject</label>
+    <input type="text" name="email_subject" value="Hey, I'm the subject"/>
+    <label for="email_message">Message</label>
+    <textarea name="email_message" rows="10" cols="30">
 Hello {{ "{{ name " }}}}!
 how are you doing? I found your email {{ "{{ email " }}}} on the internet!
 
@@ -16,12 +16,12 @@ SPAM!
   </div>
 
   <div class="row">
-    <h3>Receivers</h3>
+    <h3>Recipients</h3>
     <div class="panel">
-      <h5 class="subheader">Please paste here all the receivers one per line. Separate email and name with a coma.</h5>
+      <h5 class="subheader">Please paste here all the recipients one per line. Separate email and name with a coma.</h5>
     </div>
-    <label for="receivers"></label>
-    <textarea name="receivers" rows="10" cols="30">
+    <label for="recipients"></label>
+    <textarea name="recipients" rows="10" cols="30">
 daniele.polencic@which.co.uk, Daniele Polencic
 daniele.polencic@gmail.com, Daniele Polencic
 
@@ -33,10 +33,12 @@ daniele.polencic@gmail.com, Daniele Polencic
     <div class="panel">
       <h5 class="subheader">All the emails are processed with the following details</h5>
     </div>
-    <label for="name">Your name:</label>
-    <input type="text" name="name" />
-    <label for="username">Your email:</label>
-    <input type="email" name="username" />
+    <label for="sender_name">Your name:</label>
+    <input type="text" name="sender_name" />
+    <label for="sender_email">Your email:</label>
+    <input type="email" name="sender_email" />
+    <label for="magic_password">Insert the magic password</label>
+    <input type="text" name="magic_password" />
   </div>
 
   <div class="row">

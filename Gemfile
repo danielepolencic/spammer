@@ -1,8 +1,9 @@
 # A sample Gemfile
 source "https://rubygems.org"
 
-gem 'gmail'
+ruby '2.0.0'
+
+gem 'pony'
 gem 'sinatra'
 gem 'liquid'
-gem 'shotgun'
 gem 'liquid-blocks'
