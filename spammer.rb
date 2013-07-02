@@ -52,10 +52,8 @@ post "/spam" do
     end
   end
 
-  layout { template = params[:email_message] }
-
   for recipient in recipients do
-    html = text = liquid "building the template", :locals => recipient
+    html = text = liquid params[:email_message], :locals => recipient
     begin
       Pony.mail(
         :from => "#{ params[:sender_name] } <#{ params[:sender_email] }>",
