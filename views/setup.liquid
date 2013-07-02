@@ -1,0 +1,50 @@
+<form action="/spam" method="POST">
+  <div class="row">
+    <h3>Template</h3>
+    <div class="panel">
+      <h5 class="subheader">You can edit the following template. remember that {{ "{{ name " }}}} and {{ "{{ email " }}}} are going to be replaced with the email and name (if applicable) of the receiver.</h5>
+    </div>
+    <label for="subject">Subject</label>
+    <input type="text" name="subject" value="Hey, I'm the subject"/>
+    <label for="template">Message</label>
+    <textarea name="template" rows="10" cols="30">
+Hello {{ "{{ name " }}}}!
+how are you doing? I found your email {{ "{{ email " }}}} on the internet!
+
+SPAM!
+    </textarea>
+  </div>
+
+  <div class="row">
+    <h3>Receivers</h3>
+    <div class="panel">
+      <h5 class="subheader">Please paste here all the receivers one per line. Separate email and name with a coma.</h5>
+    </div>
+    <label for="receivers"></label>
+    <textarea name="receivers" rows="10" cols="30">
+daniele.polencic@which.co.uk, Daniele Polencic
+daniele.polencic@gmail.com, Daniele Polencic
+
+    </textarea>
+  </div>
+
+  <div class="row">
+    <h3>Gmail credentials</h3>
+    <div class="panel">
+      <h5 class="subheader">All the emails are processed using your Gmail account.</h5>
+    </div>
+    <label for="username">Your email:</label>
+    <input type="email" name="username" />
+    <label for="password">Password:</label>
+    <input type="password" name="password" />
+  </div>
+
+  <div class="row">
+    <div class="panel">
+      <h3>Are you ready?</h3>
+      <h5 class="subheader">Remeber to double check your entries. There is a daily limit of 500 emails you can send with Gmail. Beware that if you reach that limit, you won't be allowed to send any more email today.</h5>
+      <a href="#" class="button spamnow">I understand the risk. Let's go &raquo;</a>
+    </div>
+  </div>
+</form>
+
