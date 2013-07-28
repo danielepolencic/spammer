@@ -7,7 +7,7 @@ require 'pony'
 require 'mail'
 require 'json'
 require 'multi_json'
-require './config.rb'
+require_relative 'config/config'
 
 use Rack::JSONP
 
@@ -17,11 +17,11 @@ before '/send' do
   end
 end
 
-get "/" do
+get '/' do
   erb :usage
 end
 
-get "/send" do
+get '/send' do
 
   unless validEmail?( params[:to_email] )
     status 403
