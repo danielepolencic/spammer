@@ -15,6 +15,14 @@ before '/send' do
   unless params[:api_key] && ( params[:api_key].to_i == settings.api_key.to_i )
     halt 403, {'Content-Type' => 'application/json'}, {:ok => false, :message => 'API KEY not valid.'}.to_json
   end
+
+  unless validEmail?( params[:to_email] )
+    halt 403, {'Content-Type' => 'application/json'}, { :ok => false, :message => 'Email not valid.' }.to_json
+  end
+
+  if params[:message].nil? || params[:subject].nil?
+    halt 403, {'Content-Type' => 'application/json'}, { :ok => false, :message => 'Missing fields.' }.to_json
+  end
 end
 
 get '/' do
@@ -22,16 +30,6 @@ get '/' do
 end
 
 get '/send' do
-
-  unless validEmail?( params[:to_email] )
-    status 403
-    return json :ok => false, :message => 'Email not valid.'
-  end
-
-  if params[:message].nil? || params[:subject].nil?
-    status 403
-    return json :ok => false, :message => 'Missing fields.'
-  end
 
   html = liquid params[:message], :locals => params
   text = if params[:text] then params[:text] else html end
